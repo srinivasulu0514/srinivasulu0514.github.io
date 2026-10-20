@@ -196,10 +196,11 @@
             <span>View Architecture & Projects</span>
           </a>
 
-          <button onclick="downloadResumeModal()" class="px-6 py-3.5 rounded-xl text-sm font-semibold glass-card hover:bg-slate-800 text-slate-200 hover:text-white transition-all flex items-center gap-2">
+          <!-- Download Resume Link Directly Binding to resume.pdf -->
+          <a href="resume.pdf" download="Dammu_Srinivasulu_DevOps_Resume.pdf" class="px-6 py-3.5 rounded-xl text-sm font-semibold glass-card hover:bg-slate-800 text-slate-200 hover:text-white transition-all flex items-center gap-2 cursor-pointer">
             <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
             <span>Download Resume</span>
-          </button>
+          </a>
 
           <a href="#contact" class="px-6 py-3.5 rounded-xl text-sm font-semibold border border-slate-700/80 hover:border-slate-500 text-slate-300 hover:text-white transition-all flex items-center gap-2">
             <i data-lucide="terminal" class="w-4 h-4 text-emerald-400"></i>
@@ -287,6 +288,7 @@
                 <p class="pl-4 text-cyan-300">"Terraform Zero-Trust IaC",</p>
                 <p class="pl-4 text-cyan-300">"Amazon EKS & Kubernetes Scaling",</p>
                 <p class="pl-4 text-cyan-300">"DevSecOps Shift-Left Security"</p>
+                <p class="pl-4 text-cyan-300">"Observability with Prometheus & Grafana"</p>
                 <p>],</p>
                 <p><span class="text-purple-400">"credo"</span>: <span class="text-amber-300">"Automate the repeatable, observe the critical."</span></p>
               </div>
@@ -1133,19 +1135,6 @@
       document.body.removeChild(textarea);
     }
 
-    // Resume Download trigger
-    function downloadResumeModal() {
-      showToast('Preparing ATS-optimized PDF resume...');
-      // Simulated direct anchor download for local file
-      const link = document.createElement('a');
-      link.href = '#';
-      link.setAttribute('download', 'Srinivasulu_Dammu_DevOps_Resume.pdf');
-      document.body.appendChild(link);
-      setTimeout(() => {
-        showToast('Resume ready for download.');
-      }, 700);
-    }
-
     // Architecture Modal Data
     const modalData = {
       gitops: {
@@ -1248,7 +1237,6 @@
 
     function resetStepVisuals() {
       for (let i = 1; i <= 6; i++) {
-        const step = document.getElementById(`step-1`);
         const el = document.getElementById(`step-${i}`);
         el.className = 'p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col items-center text-center transition-all';
         el.querySelector('.step-icon').className = 'step-icon w-8 h-8 rounded-lg bg-slate-800 text-slate-400 flex items-center justify-center mb-2';
